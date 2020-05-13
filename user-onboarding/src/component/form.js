@@ -74,7 +74,7 @@ const Form = () => {
   return (
     <div className="form-wrapper">
       <h1>Form goes down here</h1>
-      <form>
+      <form onSubmit={submitForm}>
         <label className="dklabel" htmlFor="name">
           Name:
           <input
@@ -97,6 +97,9 @@ const Form = () => {
             placeholder="someone@something.com"
             onChange={inputChange}
           />
+          {errorState.email.length > 0 ? (
+            <p className="error">{errorState.email}</p>
+          ) : null}
         </label>
         {/* label and password for password */}
         <label className="dklabel" htmlFor="password">
@@ -122,9 +125,7 @@ const Form = () => {
           />
         </label>
         {/* Button and Submit */}
-        <button type="button" onClick={submitForm}>
-          Submit
-        </button>
+        <button type="button">Submit</button>
       </form>
     </div>
   );
