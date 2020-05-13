@@ -55,7 +55,8 @@ const Form = () => {
 
   const inputChange = (e) => {
     console.log("input changed");
-
+    e.persist();
+    validate(e);
     let value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setDataState({ ...dataState, [e.target.name]: value });
